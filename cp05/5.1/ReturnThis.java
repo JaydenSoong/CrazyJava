@@ -15,6 +15,7 @@ public class ReturnThis{
         
         ReturnThis rt = new ReturnThis();
         
+        // 可以连续调用同一个方法
         rt.grow().grow().grow();
 
         System.out.println("对象 rt 的成员变量 age 的值是：" + rt.age);
