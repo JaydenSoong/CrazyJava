@@ -21,6 +21,9 @@ public class PersonTest{
 
         // 直接输出 p 的 name 成员变量
         System.out.println(p.name);
+
+        // 将 p 变量赋值给 p2 变量
+        Person p2 = p;
     }
     
 }
