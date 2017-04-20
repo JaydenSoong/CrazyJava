@@ -84,4 +84,9 @@ public class Student{
     private void sleep(){
         System.out.println("我在睡觉...");
     }
+
+    public String toString(){
+        return "{姓名：" + this.name + "，年龄：" + this.age + "，班级：" + 
+            this.gender + "，电话" + this.phone + "，地址：" + this.address + "，邮箱：" + this.email + "}";
+    }
 }
