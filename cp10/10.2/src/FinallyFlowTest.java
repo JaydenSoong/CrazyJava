@@ -2,7 +2,7 @@ package classes;
 
 public class FinallyFlowTest {
 
-    public static void main (String[] args) {
+    public static void main (String[] args) throws Exception {
         System.out.println(test());
     }
 
