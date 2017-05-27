@@ -4,7 +4,9 @@
 ###1.查看数据库
     SHOW DATABASES;
 ###2.创建数据库
-    CREATE DATABASE [IF NOT EXISTS] 数据库名;
+```
+CREATE DATABASE [IF NOT EXISTS] 数据库名;
+```
 ###3.删除数据库
     DROP DATABASE [IF EXISTS] 数据库名;
 ###4.使用数据库（进入数据库）
