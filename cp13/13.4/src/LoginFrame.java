@@ -16,7 +16,7 @@ public class LoginFrame {
         Class.forName(driver);
         // 为登录按钮添加事件监听
         loginButton.addActionListener(e -> {
-            if (validate(userField.getText(), pwdField.getText())) {
+            if (validateByPrepare(userField.getText(), pwdField.getText())) {
                 JOptionPane.showMessageDialog(jf, "登录成功");
             } else {
                 JOptionPane.showMessageDialog(jf, "登录失败");
@@ -29,6 +29,9 @@ public class LoginFrame {
         jf.setVisible(true);
     }
 
+    /**
+     * 用 Statement 语句的方式
+     */
     private boolean validate(String userName, String userPwd) {
         String sql = "SELECT * FROM jdbc_test "
             + "WHERE jdbc_name = '" + userName
@@ -42,6 +45,26 @@ public class LoginFrame {
             } 
         } catch (Exception e) {
                e.printStackTrace(); 
+        }
+        return false;
+    }
+
+    /**
+     * 用 PreparedStatement 语句的方式
+     */
+    private boolean validateByPrepare(String userName, String userPwd) {
+        try (Connection conn = DriverManager.getConnection(url, user, pwd);
+             PreparedStatement pstmt = conn.prepareStatement(
+                 "SELECT * FROM jdbc_test WHERE jdbc_name = ? AND jdbc_desc = ?")) {
+            pstmt.setString(1, userName);
+            pstmt.setString(2, userPwd);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    return true;
+                } 
+            } 
+        }catch (Exception e) {
+            e.printStackTrace();
         }
         return false;
     }
