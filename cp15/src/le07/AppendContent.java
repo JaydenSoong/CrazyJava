@@ -1,6 +1,5 @@
 package le07;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 
@@ -11,9 +10,12 @@ import java.io.RandomAccessFile;
 public class AppendContent {
     public static void main(String[] args) {
         try (RandomAccessFile raf = new RandomAccessFile("out.txt", "rw")){
-            //移动指针到最后
-            raf.seek(raf.length());
-            raf.write("追加的内容:\n".getBytes());
+            for (int i = 0; i < 100; i++) {
+                //移动指针到最后
+                raf.seek(raf.length());
+                raf.write(("追加的内容:" + i + "\n").getBytes());
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
