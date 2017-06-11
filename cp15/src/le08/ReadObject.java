@@ -13,6 +13,7 @@ public class ReadObject {
                 ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Object.txt"))) {
             //从输入流中读取一个Object对象，并将其强制转换成Person类
             Person person = (Person) ois.readObject();
+            person.setAge(42);
             System.out.println(person);
         } catch (Exception e) {
             e.printStackTrace();
