@@ -18,9 +18,7 @@ public class TeacherRead {
             System.out.println(t1.getStudent() == t2.getStudent());
             System.out.println(t2.getStudent() == p);
             System.out.println(t2 == t3);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
