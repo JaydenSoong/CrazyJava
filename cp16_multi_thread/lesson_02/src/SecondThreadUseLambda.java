@@ -10,13 +10,13 @@ public class SecondThreadUseLambda{
             System.out.println(Thread.currentThread().getName() + " " + i);
 
             if (i == 20) {
-                Runnable r = ()-> {
+
+                //通过 new Thread(target, name) 方法创建新线程
+                new Thread(()-> {
                     for (; j < 100; j++) {
                         System.out.println(Thread.currentThread().getName() + " " + j);
                     }
-                };
-                //通过 new Thread(target, name) 方法创建新线程
-                new Thread(r, "新线程").start();
+                }, "新线程").start();
             }
         }
     }
