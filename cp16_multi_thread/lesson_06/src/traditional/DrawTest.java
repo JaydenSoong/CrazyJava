@@ -1,3 +1,5 @@
+package traditional;
+
 /**
  * Created by soong on 17-6-30.
  * 传统的线程通信
